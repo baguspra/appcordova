@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#insert").click(function() {
+            var id_baak= $("#id_baak").val();
+            var nama_baak = $("#nama_baak").val();
+            var email = $("#email").val();
+            var telp = $("#telp").val();
+            var alamat = $("#alamat").val();
+            
+            var dataString = "id_baak=" + id_baak + "&nama_baak=" + nama_baak + "&email=" + email +"&telp=" + telp +  "&alamat=" + alamat +  "&insert=";
+            if ($.trim(id_baak).length > 0 & $.trim(nama_baak).length > 0 & $.trim(email).length > 0 & $.trim(telp).length > 0  & $.trim(alamat).length > 0 ) {
+                $.ajax({
+                    type: "POST",
+                    url: "https://baguspra.000webhostapp.com/appcordova-master/appcordova-master/www/insert.php",
+                    data: dataString,
+                    crossDomain: true,
+                    cache: false,
+                    beforeSend: function() {
+                        $("#insert").val('Connecting...');
+                    },
+                    success: function(data) {
+                        if (data == "success") {
+                            alert("inserted");
+                            $("#insert").val('submit');
+                        } else if (data == "error") {
+                            alert("error");
+                        }
+                    }
+                });
+            }
+            return false;
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <h1 class="title">Insert Database</h1>
+        <a class="button button-clear" href="readjson.html">Read JSON</a>
+    </div>
+    <br/>
+    <br/>
+    <div class="list">
+        
+        <div class="item">
+            <label>id_baak</label>
+            <input type="text" id="id_baak" value="" />
+        </div>
+        <div class="item">
+            <label>nama_baak</label>
+            <input type="text" id="nama_baak" value="" />
+        </div>
+        <div class="item">
+            <label>Email</label>
+            <input type="text" id="email" value="" />
+        </div>
+        <div class="item">
+            <label>Telp</label>
+            <input type="text" id="telp" value="" />
+        </div>
+        <div class="item">
+            <label>Alamat</label>
+            <input type="text" id="alamat" value="" />
+        </div>
+        
+        <div class="item">
+            <input type="button" id="insert" class="button button-block" value="Insert" />
+        </div>
+    </div>
+</body>
+
+</html>
