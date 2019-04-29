@@ -6,29 +6,29 @@
     <script type="text/javascript" src="js/geturi.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var id_baak= decodeURI(getUrlVars()["id_baak"]);
-        var nama_baak = decodeURI(getUrlVars()["nama_baak"]);
-        var email = decodeURI(getUrlVars()["email"]);
+        var id= decodeURI(getUrlVars()["id"]);
+        var nim = decodeURI(getUrlVars()["nim"]);
+        var nama = decodeURI(getUrlVars()["nama"]);
+        var jurusan = decodeURI(getUrlVars()["jurusan"]);
         var telp = decodeURI(getUrlVars()["telp"]);
-        var alamat = decodeURI(getUrlVars()["alamat"]);
         
-        $("#id_baak").val(id_baak);
-        $("#nama_baak").val(nama_baak);
-        $("#email").val(email);
+        $("#id").val(id);
+        $("#nim").val(nim);
+        $("#nama").val(nama);
+        $("#jurusan").val(jurusan);
         $("#telp").val(telp);
-        $("#alamat").val(alamat);
         
         $("#update").click(function() {
-            var id_baak = $("#id_baak").val();
-            var nama_baak = $("#nama_baak").val();
-            var email = $("#email").val();
+            var id = $("#id").val();
+            var nim = $("#nim").val();
+            var nama = $("#nama").val();
+            var jurusan = $("#jurusan").val();
             var telp = $("#telp").val();
-            var alamat = $("#alamat").val();
             
-            var dataString = "id_baak=" + id_baak + "&nama_baak=" + nama_baak + "&email=" + email +"&telp=" + telp +  "&alamat=" + alamat +  "&update=";
+            var dataString = "id=" + id + "&nim=" + nim + "&nama=" + nama +"&jurusan=" + jurusan +  "&telp=" + telp +  "&update=";
             $.ajax({
                 type: "POST",
-                url: "https://sisfopkl.000webhostapp.com/cordova/cordova/appcordova-master/www/update.php",
+                url: "https://bagkou02.000webhostapp.com/appcordova/appcordova-master/www/update.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -47,11 +47,11 @@
 
         });
         $("#delete").click(function() {
-            var id_baak = $("#id_baak").val();
-            var dataString = "id_baak=" + id_baak + "&delete=";
+            var id = $("#id").val();
+            var dataString = "id=" + id + "&delete=";
             $.ajax({
                 type: "GET",
-                url: "https://sisfopkl.000webhostapp.com/cordova/cordova/appcordova-master/www/delete.php",
+                url: "https://bagkou02.000webhostapp.com/appcordova/appcordova-master/www/delete.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -84,27 +84,27 @@
     <div class="list">
        
         <div class="item">
-            <label>id_baak</label>
-            <input type="text" id="id_baak" value="" />
+            <label>id</label>
+            <input type="text" id="id" value="" />
         </div>
         <div class="item">
-            <label>nama_baak</label>
-            <input type="text" id="nama_baak" value="" />
-        </div>
-
-        <div class="item">
-            <label>email</label>
-            <input type="text" id="email" value="" />
+            <label>nim</label>
+            <input type="text" id="nim" value="" />
         </div>
 
         <div class="item">
-            <label>telp</label>
-            <input type="text" id="telp" value="" />
+            <label>nama</label>
+            <input type="text" id="nama" value="" />
+        </div>
+
+        <div class="item">
+            <label>jurusan</label>
+            <input type="text" id="jurusan" value="" />
         </div>
         
         <div class="item">
-            <label>alamat</label>
-            <input type="text" id="alamat" value="" />
+            <label>telp</label>
+            <input type="text" id="telp" value="" />
         </div>
        
         <div class="item">
