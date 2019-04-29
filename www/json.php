@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 $data=array();
-$q=mysqli_query($con,"select * from `baak`");
+$q=mysqli_query($con,"select * from `daftar`");
 while ($row=mysqli_fetch_object($q)){
  $data[]=$row;
 }
