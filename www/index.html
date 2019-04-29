@@ -6,17 +6,17 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $("#insert").click(function() {
-            var id_baak= $("#id_baak").val();
-            var nama_baak = $("#nama_baak").val();
-            var email = $("#email").val();
+            var id= $("#id").val();
+            var nim = $("#nim").val();
+            var nama = $("#nama").val();
+            var jurusan = $("#jurusan").val();
             var telp = $("#telp").val();
-            var alamat = $("#alamat").val();
             
-            var dataString = "id_baak=" + id_baak + "&nama_baak=" + nama_baak + "&email=" + email +"&telp=" + telp +  "&alamat=" + alamat +  "&insert=";
-            if ($.trim(id_baak).length > 0 & $.trim(nama_baak).length > 0 & $.trim(email).length > 0 & $.trim(telp).length > 0  & $.trim(alamat).length > 0 ) {
+            var dataString = "id=" + id + "&nim=" + nim + "&nama=" + nama +"&jurusan=" + jurusan +  "&telp=" + telp +  "&insert=";
+            if ($.trim(id).length > 0 & $.trim(nim).length > 0 & $.trim(nama).length > 0 & $.trim(jurusan).length > 0  & $.trim(telp).length > 0 ) {
                 $.ajax({
                     type: "POST",
-                    url: "https://baguspra.000webhostapp.com/appcordova-master/appcordova-master/www/insert.php",
+                    url: "https://bagkou02.000webhostapp.com/appcordova/appcordova-master/www/insert.php",
                     data: dataString,
                     crossDomain: true,
                     cache: false,
@@ -49,24 +49,24 @@
     <div class="list">
         
         <div class="item">
-            <label>id_baak</label>
-            <input type="text" id="id_baak" value="" />
+            <label>id</label>
+            <input type="text" id="id" value="" />
         </div>
         <div class="item">
-            <label>nama_baak</label>
-            <input type="text" id="nama_baak" value="" />
+            <label>nim</label>
+            <input type="text" id="nim" value="" />
         </div>
         <div class="item">
-            <label>Email</label>
-            <input type="text" id="email" value="" />
+            <label>nama</label>
+            <input type="text" id="nama" value="" />
         </div>
         <div class="item">
-            <label>Telp</label>
+            <label>jurusan</label>
+            <input type="text" id="jurusan" value="" />
+        </div>
+        <div class="item">
+            <label>telp</label>
             <input type="text" id="telp" value="" />
-        </div>
-        <div class="item">
-            <label>Alamat</label>
-            <input type="text" id="alamat" value="" />
         </div>
         
         <div class="item">
