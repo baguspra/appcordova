@@ -2,13 +2,13 @@
  include "db.php";
  if(isset($_POST['update']))
  {
- $id_baak=$_POST['id_baak'];
- $nama_baak=$_POST['nama_baak'];
- $email=$_POST['email'];
+ $id=$_POST['id'];
+ $nim=$_POST['nim'];
+ $nama=$_POST['nama'];
+ $jurusan=$_POST['jurusan'];
  $telp=$_POST['telp'];
- $alamat=$_POST['alamat'];
  
- $q=mysqli_query($con,"UPDATE `baak` SET `id_baak`='$id_baak',`nama_baak`='$nama_baak',`email`='$email',`telp`='$telp',`alamat`='$alamat' where `id_baak`='$id_baak'");
+ $q=mysqli_query($con,"UPDATE `daftar` SET `id`='$id',`nim`='$nim',`nama`='$nama',`jurusan`='$jurusan',`telp`='$telp' where `id`='$id'");
  if($q)
  echo "success";
  else
